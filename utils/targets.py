@@ -21,8 +21,8 @@ def prototypes_optimization(clf, sgtrain, sgeval, data_info):
         for p in range(g.contents.nnodes):
             g.contents.node[p].status = 0
         
+        pos = 0
         for i in range(g.contents.nlabels):
-            pos = 0
             for j in range(data_info.classes[i].nprots):
                 
                 g.contents.node[data_info.classes[i].index[int(w[pos])]].status = 1
