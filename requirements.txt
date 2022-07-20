@@ -1,0 +1,2 @@
+git+https://github.com/gugarosa/opytimizer.git
+numpy>=1.19.5
