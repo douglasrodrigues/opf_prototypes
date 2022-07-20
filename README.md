@@ -45,6 +45,15 @@ Install all the pre-needed requirements using:
 pip install -r requirements.txt
 ```
 
+Install Optimum-Path Forest library as following:
+
+```
+git clone https://github.com/jppbsi/libopf
+cd LibOPF
+make
+gcc -Wl,-soname,OPF -o OPF.so -shared -fPIC src/OPF.c src/util/common.c src/util/gqueue.c src/util/realheap.c src/util/set.c src/util/sgctree.c src/util/subgraph.c -I include/ -I include/util/
+```
+
 ## Usage
 
 ### Prototypes Optimization
