@@ -54,6 +54,13 @@ make
 gcc -Wl,-soname,OPF -o OPF.so -shared -fPIC src/OPF.c src/util/common.c src/util/gqueue.c src/util/realheap.c src/util/set.c src/util/sgctree.c src/util/subgraph.c -I include/ -I include/util/
 ```
 
+go to your home directory, open .bashrc (Linux) or .bash_profile (OSX) and add the following line:
+
+```
+export OPF_DIR=<path where LibOPF has been installed>
+```
+
+
 ## Usage
 
 ### Prototypes Optimization
