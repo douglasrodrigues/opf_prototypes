@@ -1,5 +1,5 @@
 # Defining the dataset to be used
-DATA="iris"
+DATA="ionosphere"
 
 # Defiing the training split
 TRAIN_SPLIT=0.2
@@ -14,13 +14,13 @@ TEST_SPLIT=0.5
 MH=("pso")
 
 # Defining the number of agents
-N_AGENTS=10
+N_AGENTS=30
 
 # Defining the number of iterations
 N_ITER=10
 
 # Defining the number of runs
-N_RUNS=3
+N_RUNS=1
 
 # Iterates through all possible seeds
 for RUN in $(seq 1 $N_RUNS); do
