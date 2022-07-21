@@ -78,7 +78,7 @@ if __name__ == '__main__':
 
     for i in range(g.contents.nlabels):
         for j in range(data_info.classes[i].nprots):
-            lb.append(0.0)
+            lb.append(0)
             ub.append(data_info.classes[i].nelems - 1)
 
     hyperparams = h.get_heuristic(args.mh).hyperparams
@@ -97,8 +97,8 @@ if __name__ == '__main__':
 
     # Insert code to reset opf_PROTOTYPE flag
     # (0 - nothing, 1 - prototype)
-    for p in range(gtrain.contents.nnodes):
-        gtrain.contents.node[p].status = 0
+    for node in range(gtrain.contents.nnodes):
+        gtrain.contents.node[node].status = 0
 
     for i in range(gtrain.contents.nlabels):
         pos = 0

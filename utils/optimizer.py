@@ -1,6 +1,7 @@
 from opytimizer import Opytimizer
 from opytimizer.core import Function
-from opytimizer.spaces import DiscreteSpace
+from opytimizer.spaces import SearchSpace
+from opytimizer.utils.callback import DiscreteSearchCallback
 
 def optimize(opt, target, n_agents, n_variables, n_iterations, lb, ub, hyperparams):
     """Abstracts all Opytimizer's mechanisms into a single method.
@@ -16,9 +17,12 @@ def optimize(opt, target, n_agents, n_variables, n_iterations, lb, ub, hyperpara
     Returns:
         A History object containing all optimization's information.
     """
+    
+    # Defines the allowed values for performing the discrete search
+    allowed_values = [list(range(lower_bound, upper_bound+1)) for lower_bound, upper_bound in zip(lb, ub)]
 
     # Creates space, optimizer and function
-    space = DiscreteSpace(n_agents, n_variables, lb, ub)
+    space = SearchSpace(n_agents, n_variables, lb, ub)
     optimizer = opt(hyperparams)
     function = Function(target)
 
@@ -26,6 +30,6 @@ def optimize(opt, target, n_agents, n_variables, n_iterations, lb, ub, hyperpara
     task = Opytimizer(space, optimizer, function)
 
     # Initializing task
-    task.start(n_iterations)
+    task.start(n_iterations, callbacks=[DiscreteSearchCallback(allowed_values=allowed_values)])
 
     return task.history
