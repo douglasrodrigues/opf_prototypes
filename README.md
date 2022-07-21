@@ -60,7 +60,6 @@ go to your home directory, open .bashrc (Linux) or .bash_profile (OSX) and add t
 export OPF_DIR=<path where LibOPF has been installed>
 ```
 
-
 ## Usage
 
 ### Prototypes Optimization
